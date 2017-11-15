@@ -1,6 +1,6 @@
-# moblie
+# vue-vx
 
-> A Vue.js project
+> vue-vx
 
 ## Build Setup
 

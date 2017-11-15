@@ -8,6 +8,7 @@
   </div>
 </template>
 <script>
+require("../css/iconfont.css");
 import rootMsg from './onther'
 import userMsg from './user'
 import vHeader from './header'
@@ -39,7 +40,7 @@ export default {
             icon:'',
             name:''
           })
-          this.$http.post('/api/robby',{
+          this.$http.post('/api',{
               key:"91fac65ebd2d4ae39f57b5af071326ae",
               info:model,
               userid:'老大'
@@ -59,8 +60,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-    @import url("../css/iconfont.css");
+<style scoped lang='scss'>
+  
     .container{
       overflow: hidden;
       word-wrap: break-word;
