@@ -1,7 +1,7 @@
 # vue-vx
 
 > vue-vx
-
+> 模拟微信的小功能
 ## Build Setup
 
 ``` bash
