@@ -1,8 +1,8 @@
 # vue-vx
 
 > vue-vx
-> 模拟微信的小功能
-## Build Setup
+## 模拟微信的小功能
+### Build Setup
 
 ``` bash
 # install dependencies
