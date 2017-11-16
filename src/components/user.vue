@@ -32,6 +32,8 @@ export default {
       display: flex;
       justify-content: flex-end;
       margin-bottom: 30px;
+      font-size:42px;
+      line-height:1.5;
       .user-icon{
         width: 90px;
         height: 90px;
@@ -44,16 +46,13 @@ export default {
         overflow: hidden;
         display: flex;
         .user-ji{
-          width: 30px;
-          height: 30px;
-          background:#22a820;
-          border:0;
-          border-right:1px solid #22a820;
-          border-bottom:1px solid #22a820;
-          position: relative; 
-          transform: rotate(-45deg);
-          top:33px;
-          left:-20px;
+          width:0;
+          height:0;
+          border:10px solid transparent;
+          border-left:10px solid #22a820;
+          position: relative;
+          left:-5px;
+          top:25px;
         }
         .msg-content{
           background:#fff;

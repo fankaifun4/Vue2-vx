@@ -5,6 +5,7 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import lib from './libs/flexlib'
+import ('./css/iconfont.scss')
 
 
 Vue.config.productionTip = false

@@ -1,7 +1,7 @@
 <template>
   <div class="container" >
       <v-header></v-header>
-      <section class="content">
+      <section class="content" ref="contentBody">
         <div :is="item.component" :icon='item.icon' :msg='item.msg' :name='item.name'  v-for="(item,key) in msg" :key="key"  ></div>
       </section>
       <v-footer @sendMsg="sendMsgs"></v-footer>
@@ -12,6 +12,7 @@ import rootMsg from './onther'
 import userMsg from './user'
 import vHeader from './header'
 import vFooter from './footer'
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -26,8 +27,14 @@ export default {
     vHeader,
     vFooter
   },
+  updated(){
+    this.$nextTick(function(){
+        let getBody=this.$refs.contentBody
+        getBody.scrollTop=getBody.scrollHeight
+    })
+  },
   mounted:function(){
-      
+    
   },
   computed:{
   },
@@ -42,8 +49,9 @@ export default {
           this.$http.post('/api',{
               key:"91fac65ebd2d4ae39f57b5af071326ae",
               info:model,
-              userid:'老大'
+              userid:'user'
           }).then((res)=>{
+              
               if(res.status==200){
                   this.msg.push({
                     component:'root-msg',
@@ -51,6 +59,7 @@ export default {
                     icon:'',
                     name:'rooter'
                   })
+                 
               }
           })
       }
@@ -60,7 +69,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-    // @import '@/css/iconfont.scss';
+    
     .container{
       overflow: hidden;
       word-wrap: break-word;
@@ -77,6 +86,7 @@ export default {
         top:120px;
         bottom:120px;
         overflow-y: scroll;
-        overflow-x:hidden
+        overflow-x:hidden;
+        background:#efefef;
     }
 </style>

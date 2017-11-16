@@ -1,7 +1,8 @@
 <template>
   <footer class="footer">
-      <textarea rows="1" cols="14" class="msg-box" v-model="msg" ref="input" ></textarea>
-      <div class="send-msg" @click="sendMsg">发送</div>
+      <input class="msg-box" v-model="msg" ref="input" @keyup.enter="sendMsg" ></input>
+      <div class="iconfont  icon-xiaolian" @click="sendMsg"></div>
+      <div class="iconfont  icon-add_c" @click="sendMsg"></div>
   </footer>
 </template>
 <script>
@@ -16,6 +17,7 @@
         },
         methods:{
             sendMsg(){
+                if( this.msg.length==0||this.msg=='' ) return
                 this.$emit('sendMsg',this.msg)
                 this.msg="";
                 this.$refs.input.focus()
@@ -24,6 +26,13 @@
     }
 </script>
 <style lang="scss" scoped>
+    .icon-add_c{
+        font-size:80px;
+        flex:.1;
+    }
+    .icon-xiaolian{
+        font-size:70px;
+    }
     .footer{
         height: 120px;
         position: absolute;
@@ -35,7 +44,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-
+        line-height:1;
         .msg-box{
             display:inline-block;
             resize: none;
@@ -43,7 +52,7 @@
             border-radius: 3px;
             height: 90px;
             font-size: 75px;
-            
+            flex:0.8;
         }
         .send-msg{
             border:1px solid #c90;
