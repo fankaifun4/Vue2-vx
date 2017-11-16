@@ -7,12 +7,14 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
-        path: '/',
-        name: 'home',
-        component: home
-    }, {
-        path: '/robby',
-        name: 'robby',
-        component: sendMsg
-    }]
+            path: '/',
+            name: 'home',
+            component: home
+        }, {
+            path: '/vx/robby',
+            name: 'robby',
+            component: sendMsg
+        },
+        { path: '*', redirect: '/' }
+    ]
 })

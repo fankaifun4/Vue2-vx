@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="container">
          <vh-header/>
         <div class="links" v-for="(item,key) in routerLinks" :key="key" @click="goPath(item.path)">
             <img :src="item.icon" alt="">
@@ -19,7 +19,7 @@
                 routerLinks:[
                     {
                         name:'图灵机器人',
-                        path:'/robby',
+                        path:'/vx/robby',
                         icon:require('../assets/imgs/c.png'),
                         describe:"一个有趣的智障机器人",
                         time:"17:08"
@@ -41,6 +41,9 @@
     }
 </script>
 <style scoped lang='scss'>
+.container{
+   
+}
 .links{
     padding:20px 20px;
     box-sizing: border-box;
@@ -50,6 +53,7 @@
     border-left:0;
     justify-content:space-start;
     align-items:center;
+    background:#fff;
     img{
         width:100px;
         height:100px;

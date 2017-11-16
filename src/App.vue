@@ -1,11 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="goin">
+      <router-view/>
+    </transition>
   </div>
 </template>
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  watch:{
+    $route:function(to,from){
+      // console.log(to,from)
+      // console.log(to.path.split('/'))
+    }
+  }
 }
 </script>
 <style>
@@ -16,6 +24,27 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height:100%;
 }
+.goin-enter-active{
+  animation: goin .5s;
+}
+.goin-leave-active{
+  animation: golive .5s reverse;
+}
+/*.goin-enter{
+   opacity: 0
+}.goin-leave-to {
+   opacity: 0
+}*/
+@keyframes goin
+{
+  from {left: -100%;}
+  to {left: 0;}
+}
+@keyframes golive
+{
+  from {left: 0%;}
+  to {left: 100%;}
+}
+
 </style>
