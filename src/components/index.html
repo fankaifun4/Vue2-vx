@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body ng-app='app' ng-controller="cont">
+    <div ng-repeat="item in ar" ns tt="item.name" ng-click="asdasd">{{item.name}}</div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    app = angular.module('app', [])
+    app.controller('cont', function($scope) {
+        $scope.ar = [{
+            name: 'asd1'
+        }, {
+            name: 'asd2'
+        }, {
+            name: 'asd3'
+        }, {
+            name: 'asd4'
+        }, {
+            name: 'asd5'
+        }]
+
+        $scope.$on('wocao', function(e, t) {
+            console.log(t)
+        })
+    })
+    app.directive('ns', function() {
+        return {
+            restrict: "EA",
+            scope: {
+                tt: '=tt'
+            },
+            link: function(scope, el, attr) {
+                //  console.log(scope.tt)
+                console.log(el)
+                el.onclick = function() {
+                    scope.$emit('wocao', scope.tt)
+                    console.log(1)
+                }
+            }
+        }
+    })
+</script>
+
+</html>

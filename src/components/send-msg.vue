@@ -8,7 +8,6 @@
   </div>
 </template>
 <script>
-require("../css/iconfont.css");
 import rootMsg from './onther'
 import userMsg from './user'
 import vHeader from './header'
@@ -61,7 +60,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-  
+    // @import '@/css/iconfont.scss';
     .container{
       overflow: hidden;
       word-wrap: break-word;

@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import lib from './libs/flexlib'
 
+
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
     /* eslint-disable no-new */
