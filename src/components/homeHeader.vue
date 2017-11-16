@@ -1,7 +1,6 @@
 <template>
   <header class="header">
     <div class="titles"> 
-        <div @click="$router.go(-1)" class="iconfont icon-prev"></div>
         <div>迷你微信（1）</div> 
     </div>
     <div class="find-set">
@@ -12,7 +11,7 @@
 </template>
 <script>
     export default {
-        name:"vHeader",
+        name:"vhHeader",
         data(){
             return {}
         }
@@ -32,7 +31,7 @@
         .titles{
             font-size:40px;
             color:#fff;
-            margin-left:10px;
+            margin-left:40px;
             display:flex;
             align-items:center;
         }

@@ -60,6 +60,7 @@ export default {
           padding:15px 20px;
           border-radius: 4px;
           background:#22a820;
+          text-align:left;
         }
       }
     }

@@ -3,20 +3,21 @@
         <div class="onther-icon"></div>
         <div class="msg-other">
             <div class="onther-ji"></div>
-            <div class="msg-content">{{this.msgs.msg}}</div>
+            <div class="msg-content">{{msgs.msg}}<a :href='msgs.url'>{{msgs.url}}</a></div>
         </div>
     </div>
  </template>
  <script>
      export default {
          name:"rootMsg",
-         props:['icon','msg','name'],
+         props:['icon','msg','name','url'],
          data(){
              return{
                 msgs:{
                     icon:'',
                     msg:'',
-                    name:''
+                    name:'',
+                    url:''
                 }, 
              }
          },
@@ -24,6 +25,7 @@
              this.msgs.msg=this.msg
              this.msgs.name=this.name
              this.msgs.icon=this.icon
+             this.msgs.url=this.url
          }
      }
  </script>

@@ -2,7 +2,8 @@
   <footer class="footer">
       <input class="msg-box" v-model="msg" ref="input" @keyup.enter="sendMsg" ></input>
       <div class="iconfont  icon-xiaolian" @click="sendMsg"></div>
-      <div class="iconfont  icon-add_c" @click="sendMsg"></div>
+      <div class="iconfont  icon-add_c" v-show="!isSend" @click="sendMsg"></div>
+      <div class="send-msg" v-show="isSend" @click="sendMsg">发送</div>
   </footer>
 </template>
 <script>
@@ -10,7 +11,8 @@
         name:"vFooter",
         data(){
             return {
-                msg:""
+                msg:"",
+                isSend:false
             }
         },
         mounted(){
@@ -22,16 +24,30 @@
                 this.msg="";
                 this.$refs.input.focus()
             }
+        },
+        watch:{
+            msg:function(){
+              if(this.msg.length>0||this.msg!=''){
+                  this.isSend=true
+              }else{
+                  this.isSend=false;
+              }
+            }
         }
     }
 </script>
 <style lang="scss" scoped>
+    input:focus {    outline:none; }
+    button:focus{ outline:none }
     .icon-add_c{
         font-size:80px;
         flex:.1;
+        transition:all 1;
     }
     .icon-xiaolian{
         font-size:70px;
+        margin:0 30px;
+
     }
     .footer{
         height: 120px;
@@ -40,33 +56,33 @@
         width:100%;
         box-sizing: border-box;
         padding:3px 10px;
-        background:#aaa;
+        background:#efefef;
+        border-top:1px solid #999;
         display: flex;
         justify-content: space-around;
         align-items: center;
         line-height:1;
         .msg-box{
-            display:inline-block;
-            resize: none;
-            border:1px solid #ccc;
-            border-radius: 3px;
+            background:#efefef;
+            border:0;
+            border-bottom:1px solid #096;
             height: 90px;
-            font-size: 75px;
-            flex:0.8;
+            font-size: 50px;
+            flex:1;
+            margin:0 10px 0 5px;;
+            text-align:left;
         }
         .send-msg{
-            border:1px solid #c90;
             border-radius: 3px;
-            background:#009;
+            background:#22a820;
             padding:10px 20px;
             color:#fff;
-            width:120px;
+            width:150px;
             height:100px;
             box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            line-height:2;
+            font-size:42px;
+            transition:all 1;
         }
-
     }
 </style>

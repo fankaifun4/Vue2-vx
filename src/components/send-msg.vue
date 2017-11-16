@@ -2,7 +2,7 @@
   <div class="container" >
       <v-header></v-header>
       <section class="content" ref="contentBody">
-        <div :is="item.component" :icon='item.icon' :msg='item.msg' :name='item.name'  v-for="(item,key) in msg" :key="key"  ></div>
+        <div :is="item.component" :icon='item.icon' :url='item.url' :msg='item.msg' :name='item.name'  v-for="(item,key) in msg" :key="key"  ></div>
       </section>
       <v-footer @sendMsg="sendMsgs"></v-footer>
   </div>
@@ -56,6 +56,7 @@ export default {
                   this.msg.push({
                     component:'root-msg',
                     msg:res.data.text,
+                    url:res.data.url||"",
                     icon:'',
                     name:'rooter'
                   })
@@ -69,7 +70,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-    
+    *:focus {outline: none;} 
     .container{
       overflow: hidden;
       word-wrap: break-word;
