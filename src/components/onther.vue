@@ -1,6 +1,6 @@
  <template>
     <div class="msg-wrap-onther">
-        <div class="onther-icon"></div>
+        <div class="onther-icon"><img :src="msgs.icon" alt=""></div>
         <div class="msg-other">
             <div class="onther-ji"></div>
             <div class="msg-content">{{msgs.msg}}<a :href='msgs.url'>{{msgs.url}}</a></div>
@@ -22,10 +22,12 @@
              }
          },
          mounted(){
+             let icon=this.icon+'.'+'png'
              this.msgs.msg=this.msg
              this.msgs.name=this.name
-             this.msgs.icon=this.icon
+             this.msgs.icon=require('../assets/imgs/'+icon)
              this.msgs.url=this.url
+            
          }
      }
  </script>
@@ -42,7 +44,12 @@
         height: 90px;
         overflow: hidden;
         border:1px solid #ccc;
-        background:#fff;
+        background:transparent;
+        img{
+            display:block;
+            width:100%;
+            height:100%;
+        }
     }
     .msg-other{
         flex:1;

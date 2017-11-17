@@ -4,7 +4,7 @@
               <div class="msg-content">{{userMsgs.msg}}</div>
               <div class="user-ji"></div>
           </div>
-          <div class="user-icon"></div>
+          <div class="user-icon"><img :src="userMsgs.icon" alt=""></div>
       </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
     mounted(){
         this.userMsgs.msg=this.msg
         this.userMsgs.name=this.name
-        this.userMsgs.icon=this.icon
+        this.userMsgs.icon=require('../assets/imgs/'+this.icon+'.'+'jpg')
     }
 }
 </script>
@@ -39,7 +39,12 @@ export default {
         height: 90px;
         overflow: hidden;
         border:1px solid #ccc;
-        background:#fff;
+        background:transparent;
+        img {
+            display:block;
+            width:100%;
+            height:100%;
+        }
       }
       .msg-user{
         max-width: 70%;

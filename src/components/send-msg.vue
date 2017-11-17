@@ -23,7 +23,7 @@ export default {
     return {
      msg:[],
      rootmsg:"",
-     msgBodyId:"TLrobby"
+     msgBodyId:this.$route.params.id
    }
   },
   components:{
@@ -39,6 +39,7 @@ export default {
     })
   },
   mounted:function(){
+    this.store.dispatch('setUser','fankx')
     if( this.msgLog.length<1 ){
         let msgType={
           name:this.msgBodyId,
@@ -65,6 +66,14 @@ export default {
     ...mapActions(['setUser','toMsgLog','insertMSG']),
     store(){
       return this.$store
+    },
+    anotherIcon(){
+      let id=this.$route.query.id
+      return 'pic_'+id
+    },
+    userIcon(){
+      let id=this.userId
+      return 'user_'+id
     }
   },
   methods:{
@@ -91,8 +100,8 @@ export default {
         let msgBody={
           component:"user-msg",
           msg:msg,
-          icon:'',
-          name:''
+          icon:this.userIcon,
+          name:this.userId
         }
         this.msg.push(msgBody)
         this.store.dispatch('insertMSG',{name,msgBody})
@@ -102,7 +111,7 @@ export default {
           component:'root-msg',
           msg:res.text,
           url:res.url||"",
-          icon:'',
+          icon:this.anotherIcon,
           name:'robby'
          }
          this.msg.push(msgBody)

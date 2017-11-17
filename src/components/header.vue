@@ -2,7 +2,7 @@
   <header class="header">
     <div class="titles"> 
         <div @click="$router.go(-1)" class="iconfont icon-prev"></div>
-        <div>迷你微信（1）</div> 
+        <div>{{this.$route.query.name}}</div> 
     </div>
     <div class="find-set">
         <div class="find iconfont icon-tubiao-copy" ></div>
@@ -15,6 +15,9 @@
         name:"vHeader",
         data(){
             return {}
+        },
+        mounted(){
+            
         }
     }
 </script>

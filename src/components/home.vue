@@ -1,7 +1,7 @@
 <template>
     <section class="container">
          <vh-header/>
-        <div class="links" v-for="(item,key) in routerLinks" :key="key" @click="goPath(item.path)">
+        <div class="links" v-for="(item,key) in routerLinks" :key="key" @click="goPath(item)">
             <img :src="item.icon" alt="">
             <div class="link-content">
                 <div class="item-name">{{item.name}}</div>
@@ -22,9 +22,10 @@
                     {
                         name:'图灵机器人',
                         path:'/vx/robby',
-                        icon:require('../assets/imgs/c.png'),
+                        icon:require('../assets/imgs/pic_TLrobby.png'),
                         describe:"一个有趣的智障机器人",
-                        time:"17:08"
+                        time:"17:08",
+                        routeName:'robby'
                     }
                 ]
             }
@@ -43,8 +44,8 @@
             vhHeader
         },
         methods:{
-            goPath(url){
-                this.$router.push(url)
+            goPath(item){
+                this.$router.push({name:item.routeName,query:{id:'TLrobby',name:'图灵机器人'}})
             }
         }
     }
