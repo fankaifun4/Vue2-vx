@@ -12,22 +12,21 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                // 测试环境
-                target: 'http://www.tuling123.com/openapi/api', // 接口域名
-                changeOrigin: true, //是否跨域
+                target: 'http://www.tuling123.com/openapi/api',
+                changeOrigin: true,
                 pathRewrite: {
-                    '^/api': '' //需要rewrite重写的,
+                    '^/api': ''
                 }
             }
         },
 
         // Various Dev Server settings
-        host: '10.198.1.44', // can be overwritten by process.env.HOST
+        host: 'localhost', // can be overwritten by process.env.HOST
         port: 8000, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
         autoOpenBrowser: false,
         errorOverlay: true,
         notifyOnErrors: true,
-        poll: true, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+        poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
         // Use Eslint Loader?
         // If true, your code will be linted during bundling and
