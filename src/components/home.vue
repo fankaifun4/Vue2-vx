@@ -12,7 +12,9 @@
     </section>
 </template>
 <script>
+    import {mapState,mapActions} from 'vuex'
     import vhHeader from './homeHeader'
+
     export default {
         data(){
             return {
@@ -28,7 +30,14 @@
             }
         },
         mounted(){
-
+            this.store.dispatch('setUser','fankx')
+        },
+        computed:{
+            ...mapState(['userId','msgLog','userIcon']),
+            ...mapActions(['setUser','toMsgLog']),
+            store(){
+            return this.$store
+            }
         },
         components:{
             vhHeader

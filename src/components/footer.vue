@@ -71,6 +71,7 @@
             flex:1;
             margin:0 10px 0 5px;;
             text-align:left;
+            padding:0 15px;
         }
         .send-msg{
             border-radius: 3px;

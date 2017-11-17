@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="goin">
+    <transition :name="transitionName">
       <router-view/>
     </transition>
   </div>
@@ -8,10 +8,17 @@
 <script>
 export default {
   name: 'app',
+  data(){
+    return{
+      transitionName:'router-pop-out'
+    }
+  },
   watch:{
     $route:function(to,from){
-      // console.log(to,from)
-      // console.log(to.path.split('/'))
+        const toDepth = to.path.split('/').length
+        const fromDepth = from.path.split('/').length
+        console.log(  )
+        this.transitionName = toDepth < fromDepth ? 'router-pop-out' : 'router-pop-in'
     }
   }
 }
@@ -25,26 +32,36 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.goin-enter-active{
-  animation: goin .5s;
-}
-.goin-leave-active{
-  animation: golive .5s reverse;
-}
-/*.goin-enter{
-   opacity: 0
-}.goin-leave-to {
-   opacity: 0
-}*/
-@keyframes goin
-{
-  from {left: -100%;}
-  to {left: 0;}
-}
-@keyframes golive
-{
-  from {left: 0%;}
-  to {left: 100%;}
-}
+  .router-pop-out-enter-active,
+  .router-pop-out-leave-active,
+  .router-pop-in-enter-active,
+  .router-pop-in-leave-active {
+    will-change: transform,opacity;
+    transition: all 400ms;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    backface-visibility: hidden;
+  }
 
+  .router-pop-out-enter {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .router-pop-out-leave-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .router-pop-in-enter {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .router-pop-in-leave-active {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
 </style>

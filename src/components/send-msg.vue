@@ -2,12 +2,16 @@
   <div class="container" >
       <v-header></v-header>
       <section class="content" ref="contentBody">
-        <div :is="item.component" :icon='item.icon' :url='item.url' :msg='item.msg' :name='item.name'  v-for="(item,key) in msg" :key="key"  ></div>
+        <div>
+          <div :is="item.component" :icon='item.icon' :url='item.url' :msg='item.msg' :name='item.name'  v-for="(item,key) in msg" :key="key"  ></div>
+        </div>
       </section>
       <v-footer @sendMsg="sendMsgs"></v-footer>
   </div>
 </template>
 <script>
+
+import {mapState,mapActions} from 'vuex'
 import rootMsg from './onther'
 import userMsg from './user'
 import vHeader from './header'
@@ -18,7 +22,8 @@ export default {
   data () {
     return {
      msg:[],
-     rootmsg:""
+     rootmsg:"",
+     msgBodyId:"TLrobby"
    }
   },
   components:{
@@ -34,36 +39,78 @@ export default {
     })
   },
   mounted:function(){
-    
+    if( this.msgLog.length<1 ){
+        let msgType={
+          name:this.msgBodyId,
+          msg:[]
+        }
+        this.store.dispatch('toMsgLog',msgType)
+        this.postMsg('/api','hello');
+    }else{
+      let tmpMSG=this.msgLog
+      for(let i=0;i<tmpMSG.length;i++){
+        if(tmpMSG[i].name==this.msgBodyId){
+          if(tmpMSG[i].length<=10){
+            this.msg=tmpMSG[i].msg
+          }else{
+            this.msg=tmpMSG[i].msg.slice(-10)
+          }
+          break
+        }
+      }
+    }
   },
   computed:{
+    ...mapState(['userId','msgLog','userIcon']),
+    ...mapActions(['setUser','toMsgLog','insertMSG']),
+    store(){
+      return this.$store
+    }
   },
   methods:{
       sendMsgs(model){
-          this.msg.push({
-            component:"user-msg",
-            msg:model,
-            icon:'',
-            name:''
-          })
-          this.$http.post('/api',{
-              key:"91fac65ebd2d4ae39f57b5af071326ae",
-              info:model,
-              userid:'user'
-          }).then((res)=>{
-              
-              if(res.status==200){
-                  this.msg.push({
-                    component:'root-msg',
-                    msg:res.data.text,
-                    url:res.data.url||"",
-                    icon:'',
-                    name:'rooter'
-                  })
-                 
-              }
-          })
+        this.userMsgBody(model,this.msgBodyId)
+        this.postMsg('/api',model)
+      },
+      async postMsg(url,msg){
+         let res = await this.send(url,msg)
+         this.roobyMsgBody(res,this.msgBodyId)
+      },
+      send(url,msg){
+        return this.$http.post(url,{
+           key:"91fac65ebd2d4ae39f57b5af071326ae",
+           info:msg||'',
+           userId:this.userId
+        }).then(res=>{
+          if(res.status){
+             return res.data
+          }
+        })
+      },
+      userMsgBody(msg,name){
+        let msgBody={
+          component:"user-msg",
+          msg:msg,
+          icon:'',
+          name:''
+        }
+        this.msg.push(msgBody)
+        this.store.dispatch('insertMSG',{name,msgBody})
+      },
+      roobyMsgBody(res,name){
+        let msgBody={
+          component:'root-msg',
+          msg:res.text,
+          url:res.url||"",
+          icon:'',
+          name:'robby'
+         }
+         this.msg.push(msgBody)
+         this.store.dispatch('insertMSG',{name,msgBody})
       }
+  },
+  watch:{
+   
   }
 }
 </script>
