@@ -2,13 +2,15 @@
 
 > vue-vx
 ## 模拟微信的小功能
+## 机器人是proxyTable 跨域请求的，build会后无法使用
+## 大佬给我弄完呗
 ### Build Setup
 
 ``` bash
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8000
 npm run dev
 
 # build for production with minification
