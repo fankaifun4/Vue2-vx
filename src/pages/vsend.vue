@@ -1,18 +1,18 @@
 <template>
     <section>
-        <home />
+        <send-msg />
     </section>
 </template>
 <script>
-    import home from '@/components/home'
+    import sendMsg from '@/components/send-msg'
     export default {
-        name:'pageHome',
+        name:'pageSendMsg',
         data(){
             return {
             }
         },
         components:{
-            home
+            sendMsg
         }
     }
 </script>

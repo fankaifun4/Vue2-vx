@@ -16,6 +16,7 @@
     import vhHeader from './homeHeader'
 
     export default {
+        name:'vhome',
         data(){
             return {
                 routerLinks:[

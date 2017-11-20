@@ -18,7 +18,7 @@ import vHeader from './header'
 import vFooter from './footer'
 
 export default {
-  name: 'HelloWorld',
+  name:'vsendMsg',
   data () {
     return {
      msg:[],

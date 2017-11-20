@@ -9,7 +9,7 @@
  </template>
  <script>
      export default {
-         name:"rootMsg",
+         name:"vonther",
          props:['icon','msg','name','url'],
          data(){
              return{

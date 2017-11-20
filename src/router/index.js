@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import sendMsg from '@/components/send-msg'
-import home from '@/components/home'
+import listMsg from '@/pages/vsend'
+import home from '@/pages/mian'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export default new Router({
         }, {
             path: '/vx/robby',
             name: 'robby',
-            component: sendMsg
+            component: listMsg
         },
         { path: '*', redirect: '/' }
     ]
