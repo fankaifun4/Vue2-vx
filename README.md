@@ -1,10 +1,15 @@
 # vue-vx
 
 > vue-vx
-## 模拟微信的小功能
+## 模拟微信的聊天功能，只添加了一个图灵机器人 
+#### [机器人文档请戳](http://www.tuling123.com/) 
 ## 机器人是proxyTable 跨域请求的，build会后无法使用
-## 大佬给我弄完呗
-### Build Setup
+## 功能还在完善中，这只是个开始    
+
+emial: <fankaifun4@qq.com>
+__________________________
+
+### 构建过程
 
 ``` bash
 # install dependencies
