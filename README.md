@@ -12,16 +12,16 @@ __________________________
 ### 构建过程
 
 ``` bash
-# install dependencies
+# 按照依赖
 npm install
 
-# serve with hot reload at localhost:8000
+# 开启node服务 端口为8000 开启后访问 localhost:8000
 npm run dev
 
-# build for production with minification
+# 构建静态项目
 npm run build
 
-# build for production and view the bundle analyzer report
+# 构建有日志打印的项目
 npm run build --report
 ```
 
