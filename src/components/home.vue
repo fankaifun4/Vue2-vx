@@ -1,6 +1,5 @@
 <template>
-    <section class="container">
-         <vh-header/>
+    <div class="home-container">
         <div class="links" v-for="(item,key) in routerLinks" :key="key" @click="goPath(item)">
             <img :src="item.icon" alt="">
             <div class="link-content">
@@ -9,16 +8,16 @@
             </div>
             <time class="time">{{item.time}}</time>
         </div>
-    </section>
+    </div>
 </template>
 <script>
     import {mapState,mapActions} from 'vuex'
-    import vhHeader from './homeHeader'
-
+    
     export default {
         name:'vhome',
         data(){
             return {
+                //首页聊天项目数据设置
                 routerLinks:[
                     {
                         name:'图灵机器人',
@@ -26,40 +25,53 @@
                         icon:require('../assets/imgs/pic_TLrobby.png'),
                         describe:"一个有趣的智障机器人",
                         time:"17:08",
-                        routeName:'robby'
+                        routeName:'asend'
                     }
                 ]
             }
         },
         mounted(){
+            //设置用户信息
             this.store.dispatch('setUser','fankx')
         },
         computed:{
+            //映射 state: userId,msgLog,userIcon 到this
             ...mapState(['userId','msgLog','userIcon']),
+
+            //映射 actions: setUser,toMsgLog 到 this
             ...mapActions(['setUser','toMsgLog']),
+
+            //将 this.$store 计算成 this.store
             store(){
-            return this.$store
+                return this.$store
             }
         },
         components:{
-            vhHeader
+           
         },
         methods:{
+            // 路由跳转
             goPath(item){
-                this.$router.push({name:item.routeName,query:{id:'TLrobby',name:'图灵机器人'}})
+                this.$router.push({name:item.routeName,query:{...item,userIcon:'/static/imgs/user_fankx.jpg'}})
             }
         }
     }
 </script>
 <style scoped lang='scss'>
-.container{
-   
+.home-container{
+    position:absolute;
+    top:120px;
+    bottom:135px;
+    left:0;
+    right:0;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 .links{
     padding:20px 20px;
     box-sizing: border-box;
     display:flex;
-    border:1px solid #ccc;
+    border-bottom:1px solid #ccc;
     border-right:0;
     border-left:0;
     justify-content:space-start;

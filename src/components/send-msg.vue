@@ -23,7 +23,7 @@ export default {
     return {
      msg:[],
      rootmsg:"",
-     msgBodyId:this.$route.params.id
+     msgBodyId:this.$route.query.id
    }
   },
   components:{
@@ -39,15 +39,22 @@ export default {
     })
   },
   mounted:function(){
+    //设置 vuex state的userId
     this.store.dispatch('setUser','fankx')
+
+    //检测是否有聊天记录
     if( this.msgLog.length<1 ){
+      //设置初始化聊天记录
         let msgType={
           name:this.msgBodyId,
           msg:[]
         }
         this.store.dispatch('toMsgLog',msgType)
-        this.postMsg('/api','hello');
+
+        //发送问好信息
+        this.postMsg('/api','hello')
     }else{
+      //获取聊天记录，如果<10则全部，否则选取10条
       let tmpMSG=this.msgLog
       for(let i=0;i<tmpMSG.length;i++){
         if(tmpMSG[i].name==this.msgBodyId){
@@ -62,29 +69,31 @@ export default {
     }
   },
   computed:{
+    //映射 state: userId,msgLog,userIcon 到this
     ...mapState(['userId','msgLog','userIcon']),
+
+    //映射 actions: setUser,toMsgLog 到 this
     ...mapActions(['setUser','toMsgLog','insertMSG']),
+
+    //将 this.$store 计算成 this.store
     store(){
       return this.$store
-    },
-    anotherIcon(){
-      let id=this.$route.query.id
-      return 'pic_'+id
-    },
-    userIcon(){
-      let id=this.userId
-      return 'user_'+id
     }
   },
   methods:{
+    //发送消息
       sendMsgs(model){
         this.userMsgBody(model,this.msgBodyId)
         this.postMsg('/api',model)
       },
+
+    //异步函数 发送消息并获取返回消息渲染
       async postMsg(url,msg){
          let res = await this.send(url,msg)
          this.roobyMsgBody(res,this.msgBodyId)
       },
+
+    //发送请求头和事件消息
       send(url,msg){
         return this.$http.post(url,{
            key:"91fac65ebd2d4ae39f57b5af071326ae",
@@ -96,30 +105,33 @@ export default {
           }
         })
       },
+
+      //动态绑定组件
+      //并且插入this.msg到vuex state
       userMsgBody(msg,name){
         let msgBody={
           component:"user-msg",
           msg:msg,
-          icon:this.userIcon,
+          icon:this.$route.query.userIcon,
           name:this.userId
         }
         this.msg.push(msgBody)
         this.store.dispatch('insertMSG',{name,msgBody})
       },
+
+      //机器人返回信息
+      //并将消息存入vuex state
       roobyMsgBody(res,name){
         let msgBody={
           component:'root-msg',
           msg:res.text,
           url:res.url||"",
-          icon:this.anotherIcon,
+          icon:this.$route.query.icon,
           name:'robby'
          }
          this.msg.push(msgBody)
          this.store.dispatch('insertMSG',{name,msgBody})
       }
-  },
-  watch:{
-   
   }
 }
 </script>

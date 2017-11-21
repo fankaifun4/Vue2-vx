@@ -6,6 +6,7 @@ Vue.use(Vuex)
 let state = {
     userId: "",
     userIcon: "",
+    navSelect:"homeMsg",
     msgLog: [
         // {
         //     name:'',

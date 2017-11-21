@@ -18,6 +18,7 @@
         mounted(){
         },
         methods:{
+            //发送msg事件
             sendMsg(){
                 if( this.msg.length==0||this.msg=='' ) return
                 this.$emit('sendMsg',this.msg)
@@ -26,6 +27,8 @@
             }
         },
         watch:{
+            //监听输入是否为空，如果空则发送按钮关闭
+            //否则现实
             msg:function(){
               if(this.msg.length>0||this.msg!=''){
                   this.isSend=true

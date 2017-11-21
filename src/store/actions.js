@@ -8,5 +8,8 @@ export default {
     },
     insertMSG:function({commit},model){
        commit(type.INSERTMSG,model)
+    },
+    changeNav:function({commit},states){
+    	commit(type.CHANGENAV,states)
     }
 }

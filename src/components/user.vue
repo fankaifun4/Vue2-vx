@@ -23,7 +23,7 @@ export default {
     mounted(){
         this.userMsgs.msg=this.msg
         this.userMsgs.name=this.name
-        this.userMsgs.icon=require('../assets/imgs/'+this.icon+'.'+'jpg')
+        this.userMsgs.icon=this.icon
     }
 }
 </script>
@@ -38,7 +38,6 @@ export default {
         width: 90px;
         height: 90px;
         overflow: hidden;
-        border:1px solid #ccc;
         background:transparent;
         img {
             display:block;

@@ -17,5 +17,8 @@ export default {
                 break;
             }
         }
+    },
+    [type.CHANGENAV]:(state,states)=>{
+        state.navSelect=states
     }
 }
