@@ -46,7 +46,7 @@
 			sendMsg(){
 				 this.$router.push({
             		name:'asend',
-            		query:{...this.curInfo,userIcon:'/static/imgs/user_fankx.jpg'}
+            		query:{...this.curInfo,userIcon:'static/imgs/user_fankx.jpg'}
             	})
 			}
 		}

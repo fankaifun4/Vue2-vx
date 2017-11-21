@@ -32,7 +32,7 @@
 						{
 	                        name:'图灵机器人',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_TLrobby.png',
+	                        icon:'static/imgs/pic_TLrobby.png',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
@@ -40,7 +40,7 @@
                     	},{
 	                        name:'小熊猫',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_a.jpg',
+	                        icon:'static/imgs/pic_a.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
@@ -48,7 +48,7 @@
                     	},{
 	                        name:'小白兔',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_b.jpg',
+	                        icon:'static/imgs/pic_b.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
@@ -56,7 +56,7 @@
                     	},{
 	                        name:'小胖猪',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_e.jpg',
+	                        icon:'static/imgs/pic_e.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
@@ -64,7 +64,7 @@
                     	},{
 	                        name:'小糊涂神',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_a.jpg',
+	                        icon:'static/imgs/pic_a.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
@@ -72,7 +72,7 @@
                     	},{
 	                        name:'七个小矮人',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_b.jpg',
+	                        icon:'static/imgs/pic_b.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
@@ -80,7 +80,7 @@
                     	},{
 	                        name:'人生得意须尽欢',
 	                        path:'/vx/detail',
-	                        icon:'/static/imgs/pic_e.jpg',
+	                        icon:'static/imgs/pic_e.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
