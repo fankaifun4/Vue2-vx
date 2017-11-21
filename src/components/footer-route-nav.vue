@@ -1,19 +1,19 @@
 <template>
 	<div class='nav-wrap'>
 		<ul class='nav'>
-			<li @click="goPath('/vx','homeMsg')" >
+			<li @click="goPath('/vx/home','homeMsg')" >
 				<p class='iconfont icon-qipao' :class='{"on":cur=="homeMsg"}' ></p>
 				<p class='icondes' :class='{"on":cur=="homeMsg"}'>微信</p>
 			</li>
-			<li  @click="goPath('/vx/mail-list','mailList')">
+			<li  @click="goPath('/vx/list/mail-list','mailList')">
 				<p class='iconfont icon-tongxunlu1' :class='{"on":cur=="mailList"}'></p>
 				<p class='icondes' :class='{"on":cur=="mailList"}'>通讯录</p>
 			</li>
-			<li  @click="goPath('/vx/find','find')">
+			<li  @click="goPath('/vx/list/find','find')">
 				<p class='iconfont icon-iconcopy' :class='{"on":cur=="find"}'></p>
 				<p class='icondes' :class='{"on":cur=="find"}'>发现</p>
 			</li>
-			<li  @click="goPath('/vx/me','me')">
+			<li  @click="goPath('/vx/list/me','me')">
 				<p class='iconfont icon-iconfontyonghu' :class='{"on":cur=="me"}'></p>
 				<p class='icondes' :class='{"on":cur=="me"}'>我</p>
 			</li>

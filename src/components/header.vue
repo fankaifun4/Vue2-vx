@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="titles"> 
-        <div @click="$router.push('/vx')" class="iconfont icon-prev"></div>
+        <div @click="goPath" class="iconfont icon-prev"></div>
         <div>{{this.$route.query.name}}</div> 
     </div>
     <div class="find-set">
@@ -18,6 +18,12 @@
         },
         mounted(){
             
+        },
+        methods:{
+            goPath(){
+                this.$store.dispatch('changeNav','homeMsg')
+                this.$router.push('/vx/home')
+            }
         }
     }
 </script>

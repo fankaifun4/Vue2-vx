@@ -11,13 +11,13 @@ export default new Router({
             component: home,
             children:[
                 {
-                    path:'/',
+                    path:'home',
                     name:'homeMsg',
                     default:true,
                     component: r => require.ensure([], () => require('../pages/msg-home.vue'), 'vx')
                 },
                 {
-                    path:'mail-list',
+                    path:'list/mail-list',
                     name:'mailList',
                     component: r => require.ensure([], () => require('@/pages/mail-list.vue'), 'vx')
                 }
@@ -32,6 +32,6 @@ export default new Router({
             name: 'detial',
             component:  r => require.ensure([], () => require('@/pages/list-detail.vue'), 'vx')
         },
-        { path: '*', redirect: '/vx' }
+        { path: '*', redirect: '/vx/home' }
     ]
 })

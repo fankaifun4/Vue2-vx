@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="titles"> 
-        <div @click="$router.push('/vx/mail-list')" class="iconfont icon-prev"></div>
+        <div @click="$router.go(-1)" class="iconfont icon-prev"></div>
         <div>{{this.$route.query.name}}</div> 
     </div>
     <div class="find-set">
