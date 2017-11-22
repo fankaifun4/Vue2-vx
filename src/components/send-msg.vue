@@ -41,31 +41,33 @@ export default {
   mounted:function(){
     //设置 vuex state的userId
     this.store.dispatch('setUser','fankx')
-
     //检测是否有聊天记录
-    if( this.msgLog.length<1 ){
-      //设置初始化聊天记录
+    let isHasMsg = this.msgLog.some((item,index,arr)=>{
+        return item.name==this.msgBodyId;
+    })
+   
+    if( !isHasMsg ){
+        //设置初始化聊天记录
         let msgType={
           name:this.msgBodyId,
           msg:[]
         }
         this.store.dispatch('toMsgLog',msgType)
-
         //发送问好信息
         this.postMsg('/api','hello')
     }else{
-      //获取聊天记录，如果<10则全部，否则选取10条
-      let tmpMSG=this.msgLog
-      for(let i=0;i<tmpMSG.length;i++){
-        if(tmpMSG[i].name==this.msgBodyId){
-          if(tmpMSG[i].length<=10){
-            this.msg=tmpMSG[i].msg
-          }else{
-            this.msg=tmpMSG[i].msg.slice(-10)
+        //获取聊天记录，如果<10则全部，否则选取10条
+        let tmpMSG=this.msgLog
+        for(let i=0;i<tmpMSG.length;i++){
+          if(tmpMSG[i].name==this.msgBodyId){
+            if(tmpMSG[i].msg.length<=10){
+              this.msg=tmpMSG[i].msg
+            }else{
+              this.msg=tmpMSG[i].msg.slice(-10)
+            }
+            break
           }
-          break
         }
-      }
     }
   },
   computed:{

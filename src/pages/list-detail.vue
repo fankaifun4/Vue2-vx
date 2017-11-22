@@ -22,6 +22,9 @@
 			<div class='send-msg' @click="sendMsg">
 				发送消息
 			</div>
+			<div class='delete-msg' @click="deleteMsg">
+				删除聊天记录
+			</div>
 		</div>
 	</div>
 </template>
@@ -44,11 +47,16 @@
 		},
 		methods:{
 			sendMsg(){
-				 this.$router.push({
+				this.$router.push({
             		name:'asend',
             		query:{...this.curInfo,userIcon:'static/imgs/user_fankx.jpg'}
             	})
+			},
+			deleteMsg(){
+				let userId=this.curInfo.id
+				this.$store.dispatch('deleteMsg',userId)
 			}
+
 		}
 	}
 </script>
@@ -125,12 +133,17 @@
 			}
 		}
 	}
-	.send-msg{
+	.send-msg,.delete-msg{
 		padding:30px;
-		background:#090;
 		color:#fff;
 		border-radius: 5px;
 		font-size:50px;
 		margin:20px;
+	}
+	.send-msg{
+		background:#090;
+	}
+	.delete-msg{
+		background:#f20;
 	}
 </style>

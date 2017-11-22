@@ -20,5 +20,12 @@ export default {
     },
     [type.CHANGENAV]:(state,states)=>{
         state.navSelect=states
+    },
+    [type.DELETEMSG]:(state,userId)=>{
+        state.msgLog.forEach((item,index)=>{
+            if(item.name=userId){
+                item.msg=[];
+            }
+        })
     }
 }

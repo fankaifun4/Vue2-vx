@@ -25,7 +25,8 @@
                         icon:require('../assets/imgs/pic_TLrobby.png'),
                         describe:"一个有趣的智障机器人",
                         time:"17:08",
-                        routeName:'asend'
+                        routeName:'asend',
+                        id:'tuling'
                     }
                 ]
             }

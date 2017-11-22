@@ -36,7 +36,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:''
+	                        address:'',
+	                        id:'tuling'
                     	},{
 	                        name:'小熊猫',
 	                        path:'/vx/detail',
@@ -44,7 +45,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:''
+	                        address:'',
+	                        id:'xiaoxiongm'
                     	},{
 	                        name:'小白兔',
 	                        path:'/vx/detail',
@@ -52,7 +54,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:''
+	                        address:'',
+	                        id:'xiaobaitu'
                     	},{
 	                        name:'小胖猪',
 	                        path:'/vx/detail',
@@ -60,7 +63,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:'' 
+	                        address:'',
+	                        id:'xiaopangzhu'
                     	},{
 	                        name:'小糊涂神',
 	                        path:'/vx/detail',
@@ -68,7 +72,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:'' 
+	                        address:'' ,
+	                        id:'xiaohutushen'
                     	},{
 	                        name:'七个小矮人',
 	                        path:'/vx/detail',
@@ -76,7 +81,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:'' 
+	                        address:'' ,
+	                        id:'qigexiaoairen'
                     	},{
 	                        name:'人生得意须尽欢',
 	                        path:'/vx/detail',
@@ -84,7 +90,8 @@
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
 	                        routeName:'detial',
-	                        address:'' 
+	                        address:'' ,
+	                        id:'rensdyxjh'
                     	}
 					]
 				}

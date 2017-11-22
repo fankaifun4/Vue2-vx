@@ -11,5 +11,8 @@ export default {
     },
     changeNav:function({commit},states){
     	commit(type.CHANGENAV,states)
+    },
+    deleteMsg:function({commit},userId){
+    	commit(type.DELETEMSG,userId)
     }
 }
