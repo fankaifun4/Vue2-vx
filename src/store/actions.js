@@ -14,5 +14,8 @@ export default {
     },
     deleteMsg:function({commit},userId){
     	commit(type.DELETEMSG,userId)
+    },
+    chatRecord:function({commit},model){
+        commit(type.CHATRECORD,model)
     }
 }

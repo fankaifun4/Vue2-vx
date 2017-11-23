@@ -29,6 +29,12 @@ export default {
         })
     },
     [type.CHATRECORD]:(state,model)=>{
-        
+        let list=state.chatrecord;
+        let isHasRecord=list.some(item=>{
+            return item.id==model.id
+        })
+        if(!isHasRecord){
+            list.push(model)
+        }
     }
 }

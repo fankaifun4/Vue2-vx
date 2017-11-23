@@ -47,6 +47,8 @@ export default {
   mounted:function(){
     //设置 vuex state的userId
     this.store.dispatch('setUser','fankx')
+    let msgTemp=this.$route.query;
+    this.store.dispatch('chatRecord',{...msgTemp})
     //检测是否有聊天记录
     let msgLog=this.msgLog;
     let cacheMSG=msgLog.some((item,index,ar)=>{

@@ -31,65 +31,65 @@
 					private:[
 						{
 	                        name:'图灵机器人',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_TLrobby.png',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'',
 	                        id:'tuling'
                     	},{
 	                        name:'小熊猫',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_a.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'',
 	                        id:'xiaoxiongm'
                     	},{
 	                        name:'小白兔',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_b.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'',
 	                        id:'xiaobaitu'
                     	},{
 	                        name:'小胖猪',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_e.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'',
 	                        id:'xiaopangzhu'
                     	},{
 	                        name:'小糊涂神',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_a.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'' ,
 	                        id:'xiaohutushen'
                     	},{
 	                        name:'七个小矮人',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_b.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'' ,
 	                        id:'qigexiaoairen'
                     	},{
 	                        name:'人生得意须尽欢',
-	                        path:'/vx/detail',
+	                        detail:'/vx/detail',
+	                        path:'/vx/asend',
 	                        icon:'static/imgs/pic_e.jpg',
 	                        describe:"一个有趣的智障机器人",
 	                        phone:'132131231231',
-	                        routeName:'detial',
 	                        address:'' ,
 	                        id:'rensdyxjh'
                     	}
@@ -106,7 +106,7 @@
 		methods:{
 			goPath(item){
                 this.$router.push({
-            		name:item.routeName,
+            		path:item.detail,
             		query:{...item,userIcon:'/static/imgs/user_fankx.jpg'}
             	})
 			}

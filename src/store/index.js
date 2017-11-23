@@ -7,12 +7,15 @@ let state = {
     userId: "",
     userIcon: "",
     navSelect:"homeMsg",
+    //聊天记录
     msgLog: [
         // {
         //     name:'',
         //     msg:[]
         // }
-    ]
+    ],
+    //聊天栏
+    chatrecord:[]
 }
 export default new Vuex.Store({
     state,

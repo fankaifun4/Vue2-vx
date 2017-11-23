@@ -21,11 +21,11 @@
                 routerLinks:[
                     {
                         name:'图灵机器人',
-                        path:'/vx/robby',
+                        path:'/vx/asend',
+                        detail:'/vx/detail',
                         icon:require('../assets/imgs/pic_TLrobby.png'),
                         describe:"一个有趣的智障机器人",
                         time:"17:08",
-                        routeName:'asend',
                         id:'tuling'
                     }
                 ]
@@ -34,10 +34,21 @@
         mounted(){
             //设置用户信息
             this.store.dispatch('setUser','fankx')
+            let routerLinks=this.routerLinks
+            let chatrecord=this.chatrecord
+            routerLinks.forEach(item=>{
+                let id=item.id;
+                chatrecord.forEach(objs=>{
+                    if( objs.id!=id ){
+                        routerLinks.push(objs)
+                    }
+                })
+            })
+           
         },
         computed:{
             //映射 state: userId,msgLog,userIcon 到this
-            ...mapState(['userId','msgLog','userIcon']),
+            ...mapState(['userId','msgLog','userIcon','chatrecord']),
 
             //映射 actions: setUser,toMsgLog 到 this
             ...mapActions(['setUser','toMsgLog']),
@@ -52,8 +63,9 @@
         },
         methods:{
             // 路由跳转
+            
             goPath(item){
-                this.$router.push({name:item.routeName,query:{...item,userIcon:'/static/imgs/user_fankx.jpg'}})
+                this.$router.push({path:item.path,query:{...item,userIcon:'/static/imgs/user_fankx.jpg'}})
             }
         }
     }
