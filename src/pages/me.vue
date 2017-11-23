@@ -1,5 +1,5 @@
 <template>
-	<section class="container">
+	<section class="list-container">
 		<div class="find-list">
 			<div class="title">
 				<img :src="userPic[0]" class='pic-user' alt="" ></img>
@@ -73,6 +73,7 @@
 </script>
 
 <style scoped lang="scss">
+
 	.bd-b1{
 		border-bottom: 1px solid #ccc;
 	}

@@ -1,5 +1,5 @@
 <template>
-	<section class="container">
+	<section class="list-container">
 		<div class="find-list">
 			<div class="title">
 				<div class='iconfont icon-qipao tub'></div>

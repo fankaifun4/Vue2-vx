@@ -59,6 +59,7 @@
 		height:140px;		
 		border-top:1px solid #ccc;
 		box-sizing:border-box;
+		background:#fff;
 		.nav{
 			display:flex;
 			height:130px;

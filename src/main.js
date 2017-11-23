@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import lib from './libs/flexlib'
+import ('./css/comm.scss')
 import ('./css/iconfont.scss')
 
 // if ('addEventListener' in document) {
