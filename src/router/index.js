@@ -14,7 +14,7 @@ export default new Router({
                     path:'home',
                     name:'homeMsg',
                     default:true,
-                    component: r => require.ensure([], () => require('../pages/msg-home.vue'), 'vx')
+                    component: r => require.ensure([], () => require('@/pages/msg-home.vue'), 'vx')
                 },
                 {
                     path:'list/mail-list',
@@ -23,7 +23,11 @@ export default new Router({
                 },{
                     path: 'list/find',
                     name: 'find',
-                    component:  r => require.ensure([], () => require('@/components/new-file.vue'), 'vx')
+                    component:  r => require.ensure([], () => require('@/pages/new-file.vue'), 'vx')
+                },{
+                    path: 'list/me',
+                    name: 'find',
+                    component:  r => require.ensure([], () => require('@/pages/me.vue'), 'vx')
                 }
             ]
         },{

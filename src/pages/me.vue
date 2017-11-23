@@ -1,9 +1,16 @@
 <template>
 	<section class="container">
 		<div class="find-list">
-			<div class="title pd0">
-				<div class='iconfont icon-qipaotub' alt="" ></div>
-				<div class="font">朋友圈</div>
+			<div class="title">
+				<img :src="userPic[0]" class='pic-user' alt="" ></img>
+				<div class="font">
+					<div class='name'>
+						小胡子叔叔
+					</div>
+					<div class='code'>
+						微信号:xxxxooo
+					</div>
+				</div>
 				<img :src="userPic[0]" class="user-pic" alt="" />
 			</div>
 			
@@ -11,28 +18,32 @@
 		<div class="find-list">
 			<div class="title bd-b1">
 				<div class='iconfont  icon-guanwangicon52  tub' alt="" ></div>
-				<div class="font">扫一扫</div>
+				<div class="font">钱包</div>
 			</div>
 		
-			<div class="title">
-				<div class='iconfont icon-iconcopy tub' alt="" ></div>
-				<div class="font">摇一摇</div>
+			<div class="title  bd-b1">
+				<div class='iconfont icon-add_c tub' alt="" ></div>
+				<div class="font">收藏</div>
 			</div>
-		</div>
-		<div class="find-list">
-			<div class="title">
+	
+			<div class="title  bd-b1">
 				<div class='iconfont icon-iconfontcollectionf tub' alt="" ></div>
-				<div class="font">附近的人</div>
+				<div class="font">相册</div>
 			</div>
-		</div>
-		<div class="find-list">
 			<div class="title  bd-b1">
 				<div class='iconfont icon-iconfontlikefill tub' alt="" ></div>
-				<div class="font">购物</div>
+				<div class="font">卡包</div>
 			</div>
+			<div class="title ">
+				<div class='iconfont icon-qipao tub' alt="" ></div>
+				<div class="font">表情包</div>
+			</div>
+		</div>
+		<div class="find-list">
+			
 			<div class="title">
 				<div class='iconfont icon-iconfont tub' alt="" ></div>
-				<div class="font">游戏</div>
+				<div class="font">设置</div>
 				<img :src="userPic[0]" class="user-pic" alt="" />
 			</div>
 		</div>
@@ -65,12 +76,10 @@
 	.bd-b1{
 		border-bottom: 1px solid #ccc;
 	}
-	.pd0{
-		padding: 0 !important;
-	}
+	
 	.find-list{
 		display:flex;
-		padding:25px 25px 25px 40px;
+		padding:0 30px;
 		margin:30px 0;
 		flex-direction:column;
 		background:#fff;
@@ -79,7 +88,7 @@
 			display:flex;
 			justify-content:spac-start;
 			align-items:center;
-			padding:20px 0;
+			padding:40px 20px;
 		}
 		.tub{
 			font-size: 60px;
@@ -89,10 +98,25 @@
 			flex:1;
 			text-align: left;
 			margin-left: 40px;
+			display:flex;
+			flex-direction:column;
+			.name{
+				font-size:50px;
+				font-weight: 700;
+			}
+			.code{
+				color:#666;
+				font-size: 42px;
+			}
 		}
 		.user-pic{
-			width:50px;
-			height:50px;
+			width:70px;
+			height:70px;
+		}
+		.pic-user{
+			width:130px;
+			height:130px;
+			display: block;
 		}
 	}
 </style>
