@@ -1,10 +1,10 @@
 <template>
   <div class="msg-wrap-user">
           <div class="msg-user">
-              <div class="msg-content">{{userMsgs.msg}}</div>
+              <div class="msg-content">{{msg}}</div>
               <div class="user-ji"></div>
           </div>
-          <div class="user-icon"><img :src="userMsgs.icon" alt=""></div>
+          <div class="user-icon"><img :src="icon" alt=""></div>
       </div>
 </template>
 <script>
@@ -19,11 +19,6 @@ export default {
                 name:''
             },
         }
-    },
-    mounted(){
-        this.userMsgs.msg=this.msg
-        this.userMsgs.name=this.name
-        this.userMsgs.icon=this.icon
     }
 }
 </script>

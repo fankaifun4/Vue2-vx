@@ -1,16 +1,22 @@
 <template>
-  <div class="container" >
-      <v-header></v-header>
-      <section class="content" ref="contentBody">
-        <div>
-          <div :is="item.component" :icon='item.icon' :url='item.url' :msg='item.msg' :name='item.name'  v-for="(item,key) in msg" :key="key"  ></div>
-        </div>
-      </section>
-      <v-footer @sendMsg="sendMsgs"></v-footer>
-  </div>
+    <div class="container" >
+        <v-header></v-header>
+        <section class="content" ref="contentBody">
+            <div  v-for="(item,key) in msgConcat" :key="key" >
+                <keep-alive>
+                    <component  :is="item.component" 
+                    :icon='item.icon' 
+                    :url='item.url' 
+                    :msg='item.msg' 
+                    :name='item.name'>
+                    </component >
+                </keep-alive>
+            </div >
+        </section>
+        <v-footer @sendMsg="sendMsgs"></v-footer>
+    </div>
 </template>
 <script>
-
 import {mapState,mapActions} from 'vuex'
 import rootMsg from './onther'
 import userMsg from './user'
@@ -21,7 +27,7 @@ export default {
   name:'vsendMsg',
   data () {
     return {
-     msg:[],
+     msgConcat:[],
      rootmsg:"",
      msgBodyId:this.$route.query.id
    }
@@ -42,32 +48,41 @@ export default {
     //设置 vuex state的userId
     this.store.dispatch('setUser','fankx')
     //检测是否有聊天记录
-    let isHasMsg = this.msgLog.some((item,index,arr)=>{
-        return item.name==this.msgBodyId;
+    let msgLog=this.msgLog;
+    let cacheMSG=msgLog.some((item,index,ar)=>{
+        return item.name==this.msgBodyId
     })
-   
-    if( !isHasMsg ){
-        //设置初始化聊天记录
-        let msgType={
-          name:this.msgBodyId,
-          msg:[]
+    //如果无记录，插入空值
+    if( !cacheMSG ){
+        let msgBody={
+            name:this.msgBodyId,
+            msg:[]
         }
-        this.store.dispatch('toMsgLog',msgType)
-        //发送问好信息
+        this.store.dispatch('toMsgLog',msgBody)
         this.postMsg('/api','hello')
     }else{
-        //获取聊天记录，如果<10则全部，否则选取10条
-        let tmpMSG=this.msgLog
-        for(let i=0;i<tmpMSG.length;i++){
-          if(tmpMSG[i].name==this.msgBodyId){
-            if(tmpMSG[i].msg.length<=10){
-              this.msg=tmpMSG[i].msg
-            }else{
-              this.msg=tmpMSG[i].msg.slice(-10)
+        //如果有记录，则深拷贝记录到本地data
+        let cache=msgLog.filter((item)=>{
+            if(item.name==this.msgBodyId)
+                return item
+        })
+        //存储聊天记录
+        let cacheMsg=cache[0].msg;
+        let imsg=[]
+        cacheMsg.forEach(item=>{
+            let obj={}
+            for(let key in item ){
+                obj[key]=item[key]
             }
-            break
-          }
+            imsg.push(obj)
+        })
+        //取最后10条聊天记录
+        if( imsg.length<=10 ){
+            this.msgConcat=imsg;
+        }else{
+            this.msgConcat=imsg.slice(-10)
         }
+        
     }
   },
   computed:{
@@ -117,7 +132,8 @@ export default {
           icon:this.$route.query.userIcon,
           name:this.userId
         }
-        this.msg.push(msgBody)
+       
+        this.msgConcat.push(msgBody)
         this.store.dispatch('insertMSG',{name,msgBody})
       },
 
@@ -131,8 +147,9 @@ export default {
           icon:this.$route.query.icon,
           name:'robby'
          }
-         this.msg.push(msgBody)
+         this.msgConcat.push(msgBody)
          this.store.dispatch('insertMSG',{name,msgBody})
+
       }
   }
 }

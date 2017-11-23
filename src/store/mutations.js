@@ -27,5 +27,8 @@ export default {
                 item.msg=[];
             }
         })
+    },
+    [type.CHATRECORD]:(state,model)=>{
+        
     }
 }

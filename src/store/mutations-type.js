@@ -3,4 +3,4 @@ export const MSGLOG='MSGLOG'
 export const INSERTMSG='INSERTMSG'
 export const CHANGENAV='CHANGENAV'
 export const DELETEMSG='DELETEMSG'
-
+export const CHATRECORD='CHATRECORD'

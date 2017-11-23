@@ -19,31 +19,38 @@
 				</div>
 				<div class='more'>更多</div>
 			</div>
-			<div class='send-msg' @click="sendMsg">
+			<div class='send-msg' @click="sendMsg" >
 				发送消息
 			</div>
-			<div class='delete-msg' @click="deleteMsg">
+			<div class='delete-msg' @click="showLayout" >
 				删除聊天记录
 			</div>
 		</div>
+		<layout :pisShow='show' @psetTrue='deleteMsg' @closeLayout='closeLayout' >
+			<div slot='layout-head'>确定删除?</div>
+			<div slot="layout-cont">确定删除聊天记录吗？</div>
+		</layout>
 	</div>
 </template>
 <script>
 	import prevHeader from '@/components/prev-header'
+	import layout from '@/components/layout'
 	export default {
 		data(){
 			return {
-				curInfo:this.$route.query
+				curInfo:this.$route.query,
+				show:false
 			}
 		},
 		components:{
 			prevHeader,
+			layout
 		},
 		mounted(){
 			
 		},
 		comupted:{
-		
+			
 		},
 		methods:{
 			sendMsg(){
@@ -55,6 +62,13 @@
 			deleteMsg(){
 				let userId=this.curInfo.id
 				this.$store.dispatch('deleteMsg',userId)
+				this.show=false;
+			},
+			showLayout(){
+				this.show=true;
+			},
+			closeLayout(){
+				this.show=false;
 			}
 
 		}
