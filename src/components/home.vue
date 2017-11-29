@@ -63,7 +63,6 @@
         },
         methods:{
             // 路由跳转
-            
             goPath(item){
                 this.$router.push({path:item.path,query:{...item,userIcon:'/static/imgs/user_fankx.jpg'}})
             }

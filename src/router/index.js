@@ -38,6 +38,18 @@ export default new Router({
             path: '/vx/detail',
             name: 'detial',
             component:  r => require.ensure([], () => require('@/pages/list-detail.vue'), 'vx')
+        },{
+            path: '/vx/yiy',
+            name: 'yiy',
+            component:  r => require.ensure([], () => require('@/pages/yiy.vue'), 'vx')
+        },{
+            path:'/vx/user/reg',
+            name:'reg',
+            component:r => require.ensure([], () => require('@/pages/users/reg.vue'), 'vx')
+        },{
+            path:'/vx/login',
+            name:'login',
+            component:r => require.ensure([], () => require('@/pages/users/login.vue'), 'vx')
         },
         { path: '*', redirect: '/vx/home' }
     ]

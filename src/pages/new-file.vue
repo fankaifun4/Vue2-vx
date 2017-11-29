@@ -14,7 +14,7 @@
 				<div class="font">扫一扫</div>
 			</div>
 		
-			<div class="title">
+			<div class="title" @click="gotoPath('yiy')">
 				<div class='iconfont icon-iconcopy tub' alt="" ></div>
 				<div class="font">摇一摇</div>
 			</div>
@@ -59,7 +59,9 @@
 			
 		},
 		methods:{
-			
+			gotoPath(routeName){
+				this.$router.push({name:routeName})
+			}
 		}
 	}
 </script>

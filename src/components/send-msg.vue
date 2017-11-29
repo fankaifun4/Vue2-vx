@@ -4,11 +4,12 @@
         <section class="content" ref="contentBody">
             <div  v-for="(item,key) in msgConcat" :key="key" >
                 <keep-alive>
-                    <component  :is="item.component" 
-                    :icon='item.icon' 
-                    :url='item.url' 
-                    :msg='item.msg' 
-                    :name='item.name'>
+                    <component  
+                      :is="item.component"
+                      :icon='item.icon'
+                      :url='item.url'
+                      :msg='item.msg'
+                      :name='item.name'>
                     </component >
                 </keep-alive>
             </div >

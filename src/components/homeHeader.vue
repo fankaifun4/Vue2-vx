@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="titles"> 
-        <div>迷你微信（1）</div> 
+        <div>迷你微信<slot></slot></div> 
     </div>
     <div class="find-set">
         <div class="find iconfont icon-tubiao-copy" ></div>

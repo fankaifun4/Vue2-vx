@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="titles"> 
-        <div @click="goPath" class="iconfont icon-prev"></div>
-        <div>{{this.$route.query.name}}</div> 
+        <div @click="$router.go(-1)" class="iconfont icon-prev"></div>
+        <slot>迷你微信</slot> 
     </div>
     <div class="find-set">
         <div class="find iconfont icon-tubiao-copy" ></div>
@@ -12,22 +12,12 @@
 </template>
 <script>
     export default {
-        props:['proute'],
         name:"vHeader",
         data(){
             return {}
         },
         mounted(){
             
-        },
-        methods:{
-            goPath(){
-                if(this.proute){
-                     this.$router.push(this.proute)
-                }
-                this.$store.dispatch('changeNav','homeMsg')
-                this.$router.push('/vx/home')
-            }
         }
     }
 </script>
