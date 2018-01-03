@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>asdasd</title>
+	<link rel="stylesheet" href="">
+	<script src="https://cdn.bootcss.com/angular.js/1.5.9/angular.min.js"
+	 type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="aaa">
+		<textarea name="" id="a" ng-model="asd"></textarea>
+		<div id="subm">
+			爱上了的框架
+		</div>
+		<div id="get">
+			爱的时刻了解
+		</div>
+		<div id='values'>
+			
+		</div>
+	</div>
+	
+</body>
+<script>
+	var app=angular.module('app',[])
+	app.controller('aaa',function($scope){
+		$scope.asd='asdasdasdasd'
+	})
+
+	document.getElementById('subm').onclick=function(){
+		document.getElementById('a').value="这已经修改了"
+	}
+	document.getElementById('get').onclick=function(){
+		console.log( document.getElementById('a').value )
+		document.getElementById('values').value=document.getElementById('a').value
+	}
+</script>
+</html>

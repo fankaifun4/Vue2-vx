@@ -26,8 +26,8 @@
 				<div class="font">收藏</div>
 			</div>
 	
-			<div class="title  bd-b1">
-				<div class='iconfont icon-iconfontcollectionf tub' alt="" ></div>
+			<div class="title  bd-b1" @click="goxc">
+				<div class='iconfont icon-iconfontcollectionf tub' alt=""  ></div>
 				<div class="font">相册</div>
 			</div>
 			<div class="title  bd-b1">
@@ -37,6 +37,10 @@
 			<div class="title ">
 				<div class='iconfont icon-qipao tub' alt="" ></div>
 				<div class="font">表情包</div>
+			</div>
+			<div class="title" @click="golb">
+				<div class='iconfont icon-qipao tub' alt="" ></div>
+				<div class="font">轮播</div>
 			</div>
 		</div>
 		<div class="find-list">
@@ -67,7 +71,12 @@
 			
 		},
 		methods:{
-			
+			goxc(){
+				this.$router.push({name:"xiangce",query:{name:"相册"}})
+			},
+			golb(){
+				this.$router.push({name:"swiper",query:{name:"相册"}})
+			}
 		}
 	}
 </script>

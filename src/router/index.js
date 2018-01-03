@@ -26,7 +26,7 @@ export default new Router({
                     component:  r => require.ensure([], () => require('@/pages/new-file.vue'), 'vx')
                 },{
                     path: 'list/me',
-                    name: 'find',
+                    name: 'me',
                     component:  r => require.ensure([], () => require('@/pages/me.vue'), 'vx')
                 }
             ]
@@ -51,6 +51,26 @@ export default new Router({
             name:'login',
             component:r => require.ensure([], () => require('@/pages/users/login.vue'), 'vx')
         },
-        { path: '*', redirect: '/vx/home' }
+        {
+            path:'/vx/404',
+            name:'404',
+            component:r => require.ensure([], () => require('@/pages/404.vue'), 'vx')
+        },
+        {
+            path:'/vx/xiangce',
+            name:'xiangce',
+            component:r => require.ensure([], () => require('@/pages/xiangc.vue'), 'vx')
+        },
+         {
+            path:'/vx/upload',
+            name:'upload',
+            component:r => require.ensure([], () => require('@/pages/upload_pic.vue'), 'vx')
+        },
+         {
+            path:'/vx/swiper',
+            name:'swiper',
+            component:r => require.ensure([], () => require('@/pages/swiper.vue'), 'vx')
+        },
+        { path: '*', redirect: '/vx/404' }
     ]
 })

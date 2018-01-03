@@ -12,7 +12,7 @@
 </template>
 <script>
     import {mapState,mapActions} from 'vuex'
-    
+    import {userInfo} from '@/config/middle'
     export default {
         name:'vhome',
         data(){
@@ -25,7 +25,7 @@
                         detail:'/vx/detail',
                         icon:require('../assets/imgs/pic_TLrobby.png'),
                         describe:"一个有趣的智障机器人",
-                        time:"17:08",
+                        time:(new Date().getHours())+":"+(new Date().getMinutes()),
                         id:'tuling'
                     }
                 ]
@@ -33,18 +33,7 @@
         },
         mounted(){
             //设置用户信息
-            this.store.dispatch('setUser','fankx')
-            let routerLinks=this.routerLinks
-            let chatrecord=this.chatrecord
-            routerLinks.forEach(item=>{
-                let id=item.id;
-                chatrecord.forEach(objs=>{
-                    if( objs.id!=id ){
-                        routerLinks.push(objs)
-                    }
-                })
-            })
-           
+            this.getUserInfo({userName:'fankx'})
         },
         computed:{
             //映射 state: userId,msgLog,userIcon 到this
@@ -64,7 +53,14 @@
         methods:{
             // 路由跳转
             goPath(item){
-                this.$router.push({path:item.path,query:{...item,userIcon:'/static/imgs/user_fankx.jpg'}})
+                this.$router.push({
+                    path:item.path,
+                    query:{ ...item }
+                })
+            },
+            async getUserInfo(user){
+              let res=await userInfo(user)
+              console.log(res)
             }
         }
     }

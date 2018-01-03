@@ -26,6 +26,7 @@
 </template>
 <script>
 	import vheader from '@/components/homeHeader'
+	import {login} from "@/config/middle"
 	export default {
 		data(){
 			return {
@@ -57,20 +58,7 @@
 					this.wron=true;
 					return false;
 				}else{
-					this.$http.post('/api/login',{
-						userName:this.user.userName,
-						pwd:this.user.pwd
-					}).then((res)=>{
-						if(!res.data.status){
-							this.tip="用户名或密码错误"
-							this.hidden=true;
-							this.wron=true;
-						}else{
-							this.tip="登录成功"
-							this.hidden=true;
-							this.wron=false;
-						}
-					})
+					this.login()
 				}
 			},
 			hide(){
@@ -80,6 +68,19 @@
 				let regExp=/\s+/ig
 				str=str.replace(regExp,'')
 				return str;
+			},
+			async login(){
+				let res=await login({userName:this.user.userName,pwd:this.user.pwd})
+				if(res.status===200){
+					if(!res.data.status){
+						this.tip=res.data.data
+						this.hidden=true;
+						this.wron=true;
+					}else{
+						this.$store.dispatch('setUser',this.user.userName)
+						this.$router.push('/vx/home')
+					}
+				}
 			}
 		}
 	}

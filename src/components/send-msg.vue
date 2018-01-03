@@ -23,7 +23,6 @@ import rootMsg from './onther'
 import userMsg from './user'
 import vHeader from './header'
 import vFooter from './footer'
-
 export default {
   name:'vsendMsg',
   data () {
@@ -46,47 +45,52 @@ export default {
     })
   },
   mounted:function(){
-    //设置 vuex state的userId
-    this.store.dispatch('setUser','fankx')
-    let msgTemp=this.$route.query;
-    this.store.dispatch('chatRecord',{...msgTemp})
-    //检测是否有聊天记录
-    let msgLog=this.msgLog;
-    let cacheMSG=msgLog.some((item,index,ar)=>{
-        return item.name==this.msgBodyId
-    })
-    //如果无记录，插入空值
-    if( !cacheMSG ){
-        let msgBody={
-            name:this.msgBodyId,
-            msg:[]
-        }
-        this.store.dispatch('toMsgLog',msgBody)
-        this.postMsg('/api','hello')
-    }else{
-        //如果有记录，则深拷贝记录到本地data
-        let cache=msgLog.filter((item)=>{
-            if(item.name==this.msgBodyId)
-                return item
-        })
-        //存储聊天记录
-        let cacheMsg=cache[0].msg;
-        let imsg=[]
-        cacheMsg.forEach(item=>{
-            let obj={}
-            for(let key in item ){
-                obj[key]=item[key]
-            }
-            imsg.push(obj)
-        })
-        //取最后10条聊天记录
-        if( imsg.length<=10 ){
-            this.msgConcat=imsg;
-        }else{
-            this.msgConcat=imsg.slice(-10)
-        }
+    console.log(this.userId)
+
+
+
+
+    // //设置 vuex state的userId
+    // this.store.dispatch('setUser','fankx')
+    // let msgTemp=this.$route.query;
+    // this.store.dispatch('chatRecord',{...msgTemp})
+    // //检测是否有聊天记录
+    // let msgLog=this.msgLog;
+    // let cacheMSG=msgLog.some((item,index,ar)=>{
+    //     return item.name==this.msgBodyId
+    // })
+    // //如果无记录，插入空值
+    // if( !cacheMSG ){
+    //     let msgBody={
+    //         name:this.msgBodyId,
+    //         msg:[]
+    //     }
+    //     this.store.dispatch('toMsgLog',msgBody)
+    //     this.postMsg('/api','hello')
+    // }else{
+    //     //如果有记录，则深拷贝记录到本地data
+    //     let cache=msgLog.filter((item)=>{
+    //         if(item.name==this.msgBodyId)
+    //             return item
+    //     })
+    //     //存储聊天记录
+    //     let cacheMsg=cache[0].msg;
+    //     let imsg=[]
+    //     cacheMsg.forEach(item=>{
+    //         let obj={}
+    //         for(let key in item ){
+    //             obj[key]=item[key]
+    //         }
+    //         imsg.push(obj)
+    //     })
+    //     //取最后10条聊天记录
+    //     if( imsg.length<=10 ){
+    //         this.msgConcat=imsg;
+    //     }else{
+    //         this.msgConcat=imsg.slice(-10)
+    //     }
         
-    }
+    // }
   },
   computed:{
     //映射 state: userId,msgLog,userIcon 到this
