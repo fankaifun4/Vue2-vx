@@ -38,14 +38,6 @@ module.exports = {
                 include: [resolve('src'), resolve('test')]
             },
             {
-                test: /\.css$/,
-                include: [
-                    /src/, //表示在src目录下的css需要编译  
-                    '/node_modules/element-ui/lib/' //增加此项  
-                ],
-                loader: 'style-loader!css-loader'
-            },
-            {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 options: {

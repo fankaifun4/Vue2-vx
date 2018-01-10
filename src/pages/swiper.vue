@@ -28,7 +28,7 @@
 	</div>
 </template>
 <script>
-	import Swiper from 'swiper'
+	import 'swiper'
 	import "../css/swiper.scss"
 	export default{
 		data(){
